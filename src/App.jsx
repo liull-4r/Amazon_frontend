@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 // eslint-disable-next-line no-undef
 
+
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
@@ -15,7 +16,10 @@ import { Elements } from '@stripe/react-stripe-js';
 import Orders from "./Components/Orders/Orders";
 
 function App() {
-   const promise = loadStripe( 'pk_test_51OP0hkKEn03huA0VC0OypkhyxT79qHwUTSoyFiohaS6FWT05htCa8r1CjMSuKYU69TuY1HL6VKw4EVa0H2PLHKWm00f5W060uh');
+
+
+  const promise = loadStripe('pk_test_51OP0hkKEn03huA0VC0OypkhyxT79qHwUTSoyFiohaS6FWT05htCa8r1CjMSuKYU69TuY1HL6VKw4EVa0H2PLHKWm00f5W060uh');
+  
    const [, dispatch] = useStateValue();
    useEffect(() => {
      auth.onAuthStateChanged((authUser) => {
