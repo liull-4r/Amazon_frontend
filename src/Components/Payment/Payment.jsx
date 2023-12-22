@@ -3,16 +3,19 @@ import { useStateValue } from "../StateProvider/StateProvider";
 import "./Payment.css"
 import CheckOutProduct from "../CheckoutProduct/CheckOutProduct";
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import CurrencyFormat from "react-currency-format";
+// import CurrencyFormat from "react-currency-format";
+import numeral from "numeral";
 import { useEffect, useState } from "react";
 import instance from "../Axios/axios";
 import { db } from "../File/Firebase";
 
 function Payment() {
+  
   const navigate = useNavigate()
       const [{ basket, user }, dispatch] = useStateValue();
   const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => item.price + amount, 0);
+  const value =numeral(getBasketTotal(basket)).format('$0,0.00');
 
   const stripe = useStripe();
   const elements = useElements();
@@ -127,14 +130,9 @@ function Payment() {
             <form onSubmit={handleSubmit} >
               <CardElement onChange={handleChange} />
                <div className="payment__priceContainer">
-                <CurrencyFormat
-                  renderText={(value) => <h3>Order Total: {value}</h3>}
-                  decimalScale={2}
-                  value={getBasketTotal(basket)}
-                  displayType={'text'}
-                  thousandSeparator={true}
-                  prefix={'$'}
-                />
+               
+                    <h3>Order Total: {value}</h3>
+                
                  <button disabled={processing || disabled || succeeded}>
                   <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
                 </button>

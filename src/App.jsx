@@ -1,7 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 // eslint-disable-next-line no-undef
-
-
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
