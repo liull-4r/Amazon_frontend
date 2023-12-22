@@ -9,7 +9,7 @@ function Subtotal() {
     const [{ basket }] = useStateValue();
     const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => item.price + amount, 0); 
-  console.log(getBasketTotal(basket))
+ 
    const number = getBasketTotal(basket);
   const formattedNumber = numeral(number).format('$0,0.00');
   return (
