@@ -32,8 +32,7 @@ function Payment() {
     // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
       const response = await instance({
-        method: 'post',
-       
+        method: 'post',   
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       })
       .catch(err => console.log(err));
@@ -129,10 +128,8 @@ function Payment() {
                      <div className="payment__details">
             <form onSubmit={handleSubmit} >
               <CardElement onChange={handleChange} />
-               <div className="payment__priceContainer">
-               
-                    <h3>Order Total: {value}</h3>
-                
+               <div className="payment__priceContainer">              
+                    <h3>Order Total: {value}</h3>               
                  <button disabled={processing || disabled || succeeded}>
                   <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
                 </button>

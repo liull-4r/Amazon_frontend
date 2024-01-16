@@ -23,7 +23,6 @@ function App() {
      auth.onAuthStateChanged((authUser) => {
      
        if (authUser) {
-       
          dispatch({
            type: "SET_USER",
            user: authUser,

@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,14 +41,14 @@ function Login() {
           <h5>E-mail</h5>
           <input
             type="text"
-            value={email}
+            // value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <h5>Password</h5>
           <input
             type="password"
-            value={password}
+            // value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
